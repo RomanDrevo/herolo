@@ -14,16 +14,10 @@ export default class MoviesStore {
     @observable getMovieDetailsError = null
     @observable isEditMovieFormOpen = false
     @observable isAddMovieFormOpen = false
-    @observable isFormOpen = false
     @observable isRemoveMovieSwalOpen = false
     @observable isMovieExistSwalOpen = false
 
-    // @action
-    // openForm = () => {
-    //   runInAction(() => {
-    //     this.isFormOpen = true
-    //   })
-    // }
+
     @action
     openAddMovieForm = () => {
         runInAction(() => {
@@ -62,11 +56,6 @@ export default class MoviesStore {
       })
     }
 
-    _updateMovie = (movie) => {
-      const foundIndex = this.filteredMovies.findIndex((x) => x.id === movie.id)
-      this.filteredMovies[foundIndex] = movie
-    }
-
     @action
     removeMovie = (movie) => {
       const movies = this.filteredMovies
@@ -76,33 +65,10 @@ export default class MoviesStore {
       this.closeRemoveMovieSwal()
     }
 
-    _openMovieExistSwal = () => {
-      this.isMovieExistSwalOpen = true
-    }
-
     @action
     closeMovieExistSwal = () => {
       this.isMovieExistSwalOpen = false
     }
-
-    _addMovie = (movie) => {
-      const movies = this.filteredMovies
-      movies.unshift(movie)
-      this.movies = movies
-      this.closeForm()
-      this.closeMovieExistSwal()
-    }
-
-    _setSelectedMovie = (movie) => {
-      this.selectedMovie = movie
-    }
-
-    // @action
-    // closeEditMovieForm = () => {
-    //   runInAction(() => {
-    //     this.isEditMovieFormOpen = false
-    //   })
-    // }
 
     @action
     async getMovies() {
@@ -140,6 +106,27 @@ export default class MoviesStore {
       return this.movies.filter((movie, index, self) => index === self.findIndex((newMovie) => (
         newMovie.id === movie.id && newMovie.name === movie.name
       )))
+    }
+
+    _updateMovie = (movie) => {
+        const foundIndex = this.filteredMovies.findIndex((x) => x.id === movie.id)
+        this.filteredMovies[foundIndex] = movie
+    }
+
+    _setSelectedMovie = (movie) => {
+        this.selectedMovie = movie
+    }
+
+    _addMovie = (movie) => {
+        const movies = this.filteredMovies
+        movies.unshift(movie)
+        this.movies = movies
+        this.closeForm()
+        this.closeMovieExistSwal()
+    }
+
+    _openMovieExistSwal = () => {
+        this.isMovieExistSwalOpen = true
     }
 
     _titleCase = (str) => {

@@ -12,3 +12,11 @@ a:hover{
     color: #000000!important;
     opacity: .6;
 }
+
+.movie-img{
+    background-image: url("../../assets/images/movie.jpg");
+    width: 100%;
+}
+.movie-img-wrapper{
+
+}

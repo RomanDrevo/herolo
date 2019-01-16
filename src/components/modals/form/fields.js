@@ -4,7 +4,7 @@ export const fields = [
   {
     name: 'name',
     label: 'Name',
-    rules: 'required|string|regex:/^[a-zA-Z0-9 \\-_]*$/',
+    rules: 'required|string|regex:/^[a-zA-Z0-9 \\-_:\']*$/',
     options: {
       validateOnChange: true,
     },
