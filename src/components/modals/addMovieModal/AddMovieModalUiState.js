@@ -11,14 +11,12 @@ export default class AddMovieModalUiState {
       onSuccess(form) {
         const movie = form.values()
         movie.id = Math.floor(Math.random() * 100000) + 1
-
         if (moviesStore.movies.some((e) => e.name === movie.name)) {
           moviesStore._openMovieExistSwal()
           return null
         }
         movie.name = moviesStore._titleCase(movie.name)
         moviesStore._addMovie(movie)
-
         form.clear()
         moviesStore.closeForm()
       },

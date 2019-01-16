@@ -11,6 +11,11 @@ export default class EditMoviesModalUiState {
       onSuccess(form) {
         const movie = form.values()
         movie.id = moviesStore.selectedMovie.id
+          if (moviesStore.movies.some((e) => e.name === movie.name)) {
+              moviesStore._openMovieExistSwal()
+              return null
+          }
+          movie.name = moviesStore._titleCase(movie.name)
         moviesStore._updateMovie(movie)
         moviesStore.closeForm()
       },
