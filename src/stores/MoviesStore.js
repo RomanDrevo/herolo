@@ -14,20 +14,36 @@ export default class MoviesStore {
     @observable getMovieDetailsError = null
     @observable isEditMovieFormOpen = false
     @observable isAddMovieFormOpen = false
+    @observable isFormOpen = false
     @observable isRemoveMovieSwalOpen = false
     @observable isMovieExistSwalOpen = false
 
+    // @action
+    // openForm = () => {
+    //   runInAction(() => {
+    //     this.isFormOpen = true
+    //   })
+    // }
     @action
     openAddMovieForm = () => {
-      runInAction(() => {
-        this.isAddMovieFormOpen = true
-      })
+        runInAction(() => {
+            this.isAddMovieFormOpen = true
+        })
     }
 
     @action
-    closeAddMovieForm = () => {
+    openEditMovieForm = (movie) => {
+        runInAction(() => {
+            this.isEditMovieFormOpen = true
+        })
+        this._setSelectedMovie(movie)
+    }
+
+    @action
+    closeForm = () => {
       runInAction(() => {
         this.isAddMovieFormOpen = false
+        this.isEditMovieFormOpen = false
       })
     }
 
@@ -44,14 +60,6 @@ export default class MoviesStore {
       runInAction(() => {
         this.isRemoveMovieSwalOpen = false
       })
-    }
-
-    @action
-    openEditMovieForm = (movie) => {
-      runInAction(() => {
-        this.isEditMovieFormOpen = true
-      })
-      this._setSelectedMovie(movie)
     }
 
     _updateMovie = (movie) => {
@@ -81,7 +89,7 @@ export default class MoviesStore {
       const movies = this.filteredMovies
       movies.unshift(movie)
       this.movies = movies
-      this.closeAddMovieForm()
+      this.closeForm()
       this.closeMovieExistSwal()
     }
 
@@ -89,12 +97,12 @@ export default class MoviesStore {
       this.selectedMovie = movie
     }
 
-    @action
-    closeEditMovieForm = () => {
-      runInAction(() => {
-        this.isEditMovieFormOpen = false
-      })
-    }
+    // @action
+    // closeEditMovieForm = () => {
+    //   runInAction(() => {
+    //     this.isEditMovieFormOpen = false
+    //   })
+    // }
 
     @action
     async getMovies() {

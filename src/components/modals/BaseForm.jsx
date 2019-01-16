@@ -7,7 +7,6 @@ import { inject, observer } from 'mobx-react'
 class BaseForm extends Component {
   render() {
     const { form, moviesStore } = this.props
-
     return (
       <form id="movies-form" className="login-form" onSubmit={form.onSubmit}>
         <FormGroup>
@@ -78,7 +77,7 @@ class BaseForm extends Component {
 
           <div className="text-center">
             <button className="action-button mb2 mt3" type="submit" disabled={!form.isValid}>Save changes</button>
-            <div className="pointer" onClick={moviesStore.closeAddMovieForm}>Close</div>
+            <div className="pointer" onClick={moviesStore.closeForm}>Close</div>
           </div>
 
           <p className="error">{form.error}</p>
