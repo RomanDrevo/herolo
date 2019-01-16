@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap'
 import { inject, observer } from 'mobx-react/index'
-import BaseForm from "../BaseForm";
+import BaseForm from "../form/BaseForm";
 
 @inject('editMoviesModalUiState', 'moviesStore')
 @observer

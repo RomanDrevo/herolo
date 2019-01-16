@@ -1,5 +1,5 @@
 import MobxReactForm from 'mobx-react-form'
-import { fields, plugins } from '../fields'
+import { fields, plugins } from '../form/fields'
 
 
 export default class AddMovieModalUiState {
@@ -20,7 +20,7 @@ export default class AddMovieModalUiState {
         moviesStore._addMovie(movie)
 
         form.clear()
-        moviesStore.closeAddMovieForm()
+        moviesStore.closeForm()
       },
       onError(form) {
         console.log('All form errors', form.errors())

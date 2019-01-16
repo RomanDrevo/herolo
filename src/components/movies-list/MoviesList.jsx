@@ -2,14 +2,12 @@ import React, { Component } from 'react'
 import { Glyphicon } from 'react-bootstrap'
 import { inject, observer } from 'mobx-react'
 import SweetAlert from 'sweetalert2-react'
-import { withRouter } from 'react-router-dom'
 import './MoviesList.css'
 import MovieDetails from '../movie-details/MovieDetails'
 import EditMoviesModal from '../modals/editMoviesModal/EditMoviesModal'
 import AddMovieModal from '../modals/addMovieModal/AddMovieModal'
 
 
-@withRouter
 @inject('moviesStore')
 @observer
 class MoviesList extends Component {

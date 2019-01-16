@@ -1,5 +1,5 @@
 import MobxReactForm from 'mobx-react-form'
-import { fields, plugins } from '../fields'
+import { fields, plugins } from '../form/fields'
 
 
 export default class EditMoviesModalUiState {
@@ -12,7 +12,7 @@ export default class EditMoviesModalUiState {
         const movie = form.values()
         movie.id = moviesStore.selectedMovie.id
         moviesStore._updateMovie(movie)
-        moviesStore.closeEditMovieForm()
+        moviesStore.closeForm()
       },
       onError(form) {
         console.log('All form errors', form.errors())
