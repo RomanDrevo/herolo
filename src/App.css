@@ -1,0 +1,88 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 130px;
+    height: 130px;
+    margin: -75px 0 0 -75px;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.action-button{
+    text-transform: uppercase;
+    border: 1px solid #000;
+    font-size: 15px;
+    color: #000;
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+.action-button:hover{
+    opacity: .6;
+}
+
+button.action-button{
+    background: transparent;
+}
+
+
+.jumbotron p {
+    margin-bottom: 15px;
+    font-size: 17px!important;
+    font-weight: 200;
+}
+
+.modal-content{
+    background: #f3f3f3!important;
+}
+
+.form-control{
+    padding: 22px 12px!important;
+}
+
+textarea{
+    padding: 12px;
+}
+
+.error{
+    color: red;
+}
