@@ -2,21 +2,8 @@ import React, {Component} from 'react'
 import {inject, observer} from 'mobx-react'
 import {Col, Row} from 'react-bootstrap'
 import './MovieDetails.css'
+import MovieImg from "./MovieImg";
 
-class MovieImg extends Component{
-    state={
-        imgUrl: this.props.movie.imageUrl
-    }
-    render(){
-        const {movie} = this.props
-        return (
-            <img onError={this.handleOnError} className="movie-img" alt={movie.name} src={this.state.imgUrl}/>
-        )
-    }
-    handleOnError = () => {
-        this.setState({imgUrl: require('../../assets/images/movie.jpg')})
-    }
-}
 
 @inject('moviesStore')
 @observer
@@ -29,7 +16,6 @@ class MovieDetails extends Component {
                 <Col sm={3}>
                     <div className="movie-img-wrapper">
                         <MovieImg movie={movie}/>
-                        {/*<img onError={()=> console.log(`cant load img for ${movie.name}`)} className="movie-img" alt={movie.name} src={movie.imageUrl}/>*/}
                     </div>
                 </Col>
                 <Col sm={6}>
